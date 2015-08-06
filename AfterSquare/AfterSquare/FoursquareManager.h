@@ -6,12 +6,13 @@
 //
 
 //#import "Constants.h"
+#import <CoreLocation/CoreLocation.h>
 #import <Foundation/Foundation.h>
 
 @interface FoursquareManager : NSObject
 
 +(id)sharedManager;
--(void)searchNearLocations;
+-(void)searchLocationsNearLocation:(CLPlacemark *)location;
 -(void)fsAuthorize;
 
 @end

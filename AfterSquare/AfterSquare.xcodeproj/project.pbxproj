@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		7080A2F5CE60F4F7E69661AD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3766999F44EB744017240C9 /* libPods.a */; };
+		FF600BE51B72DEFA005B4DFF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF600BE41B72DEFA005B4DFF /* CoreLocation.framework */; };
+		FF600BE81B72DFCF005B4DFF /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF600BE71B72DFCF005B4DFF /* LocationManager.m */; };
+		FF600BEB1B741103005B4DFF /* NSObject+PerformSelectorWithCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = FF600BEA1B741103005B4DFF /* NSObject+PerformSelectorWithCallback.m */; };
 		FF8AB8721B70ED48003C5BD8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8AB8711B70ED48003C5BD8 /* main.m */; };
 		FF8AB8751B70ED48003C5BD8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8AB8741B70ED48003C5BD8 /* AppDelegate.m */; };
 		FF8AB8781B70ED48003C5BD8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8AB8771B70ED48003C5BD8 /* ViewController.m */; };
@@ -33,6 +36,11 @@
 		4E9EEA4100911292987C63B6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E3766999F44EB744017240C9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8020121F8573153185D6A63 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		FF600BE41B72DEFA005B4DFF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		FF600BE61B72DFCF005B4DFF /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
+		FF600BE71B72DFCF005B4DFF /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
+		FF600BE91B741103005B4DFF /* NSObject+PerformSelectorWithCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PerformSelectorWithCallback.h"; sourceTree = "<group>"; };
+		FF600BEA1B741103005B4DFF /* NSObject+PerformSelectorWithCallback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PerformSelectorWithCallback.m"; sourceTree = "<group>"; };
 		FF8AB86C1B70ED48003C5BD8 /* AfterSquare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AfterSquare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF8AB8701B70ED48003C5BD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF8AB8711B70ED48003C5BD8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -59,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF600BE51B72DEFA005B4DFF /* CoreLocation.framework in Frameworks */,
 				7080A2F5CE60F4F7E69661AD /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -76,6 +85,7 @@
 		02D814941B2F7F981B220C37 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FF600BE41B72DEFA005B4DFF /* CoreLocation.framework */,
 				E3766999F44EB744017240C9 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -113,6 +123,8 @@
 		FF8AB86E1B70ED48003C5BD8 /* AfterSquare */ = {
 			isa = PBXGroup;
 			children = (
+				FF600BE91B741103005B4DFF /* NSObject+PerformSelectorWithCallback.h */,
+				FF600BEA1B741103005B4DFF /* NSObject+PerformSelectorWithCallback.m */,
 				FF8AB8731B70ED48003C5BD8 /* AppDelegate.h */,
 				FF8AB8741B70ED48003C5BD8 /* AppDelegate.m */,
 				FF9B21121B72C21C0002968B /* Constant.h */,
@@ -120,6 +132,8 @@
 				FF8AB8961B717F0B003C5BD8 /* FoursquareManager.m */,
 				FF8AB8971B717F0B003C5BD8 /* LocationCell.h */,
 				FF8AB8981B717F0B003C5BD8 /* LocationCell.m */,
+				FF600BE61B72DFCF005B4DFF /* LocationManager.h */,
+				FF600BE71B72DFCF005B4DFF /* LocationManager.m */,
 				FF8AB8991B717F0B003C5BD8 /* PrefixHeader.pch */,
 				FF8AB8761B70ED48003C5BD8 /* ViewController.h */,
 				FF8AB8771B70ED48003C5BD8 /* ViewController.m */,
@@ -292,6 +306,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF600BE81B72DFCF005B4DFF /* LocationManager.m in Sources */,
+				FF600BEB1B741103005B4DFF /* NSObject+PerformSelectorWithCallback.m in Sources */,
 				FF8AB8781B70ED48003C5BD8 /* ViewController.m in Sources */,
 				FF8AB8751B70ED48003C5BD8 /* AppDelegate.m in Sources */,
 				FF8AB89B1B717F0B003C5BD8 /* LocationCell.m in Sources */,

@@ -60,20 +60,27 @@
     
 }
 
--(void)searchNearLocations
+-(void)searchLocationsNearLocation:(CLPlacemark *)place
 {
+    
+    if (place == nil) {
+        
+    }
 //    NSString *urlString = @"1.1/search/tweets.json?";
 //    NSString *requstURLString = [NSString new];
     
+//    NSLog(@"location description => %@",place.description);
+    
     NSMutableDictionary *params = [NSMutableDictionary new];
-    params[@"ll"] = @"44.3,37.2";
-    params[@"near"] = @"Chicago, IL";
+    params[@"ll"] = [NSString stringWithFormat:@"%f,%f",place.location.coordinate.latitude,place.location.coordinate.longitude];
+    params[@"near"] = [NSString stringWithFormat:@"%@ %@",place.locality,place.administrativeArea];
     params[@"limit"] = @"10";
     params[@"intent"] = @"browse";
-    params[@"radisu"] = @"800";
+    params[@"section"] = @"topPicks";
+    params[@"radius"] = @"800";
     params[@"client_id"] = FS_CLIENT_ID;
     params[@"client_secret"] = FS_CLIENT_SECRET;
-    params[@"v"] = [self getCurrentDate];
+    params[@"v"] = [self getCurrentDateStampWithFormat:place.location.timestamp];
 
 //    for (NSString *key in params) {
 //        NSString *param = [params[key] urlencode];
@@ -82,7 +89,7 @@
 //    }
 //    
 //    [manager.requestSerializer setValue:bearerToken forHTTPHeaderField:@"Authorization"];
-    [manager GET:@"venues/search" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager GET:@"venues/explore" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Operation complete");
 //        [[NSNotificationCenter defaultCenter]postNotificationName:TW_MAP_GETTING object:[NSArray arrayWithObjects:responseObject[@"statuses"],tag, nil]];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -90,11 +97,11 @@
     }];
 }
 
--(NSString*)getCurrentDate
+-(NSString*)getCurrentDateStampWithFormat:(NSDate*) dateStamp
 {
     NSDateFormatter *formatter = [NSDateFormatter new];
     [formatter setDateFormat:@"YYYYMMDD"];
-    return [formatter stringFromDate:[NSDate date]];
+    return [formatter stringFromDate:dateStamp];
 }
 
 @end
