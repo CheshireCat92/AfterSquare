@@ -104,8 +104,6 @@
              [[NSNotificationCenter defaultCenter]postNotificationName:CL_CURENT_LOC object:[placemarks lastObject] ] ;
         };
     }];
-   
-    
 }
 
 

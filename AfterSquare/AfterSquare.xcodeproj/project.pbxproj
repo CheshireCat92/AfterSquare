@@ -11,6 +11,10 @@
 		FF600BE51B72DEFA005B4DFF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF600BE41B72DEFA005B4DFF /* CoreLocation.framework */; };
 		FF600BE81B72DFCF005B4DFF /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF600BE71B72DFCF005B4DFF /* LocationManager.m */; };
 		FF600BEB1B741103005B4DFF /* NSObject+PerformSelectorWithCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = FF600BEA1B741103005B4DFF /* NSObject+PerformSelectorWithCallback.m */; };
+		FF600BEE1B749A10005B4DFF /* FsPlaceModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FF600BEC1B749A10005B4DFF /* FsPlaceModel.xcdatamodeld */; };
+		FF600BF11B74AE74005B4DFF /* DataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FF600BF01B74AE74005B4DFF /* DataHelper.m */; };
+		FF600BF41B74B024005B4DFF /* PlaceDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = FF600BF31B74B024005B4DFF /* PlaceDetails.m */; };
+		FF600BF71B74B025005B4DFF /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = FF600BF61B74B025005B4DFF /* Place.m */; };
 		FF8AB8721B70ED48003C5BD8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8AB8711B70ED48003C5BD8 /* main.m */; };
 		FF8AB8751B70ED48003C5BD8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8AB8741B70ED48003C5BD8 /* AppDelegate.m */; };
 		FF8AB8781B70ED48003C5BD8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8AB8771B70ED48003C5BD8 /* ViewController.m */; };
@@ -41,6 +45,13 @@
 		FF600BE71B72DFCF005B4DFF /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		FF600BE91B741103005B4DFF /* NSObject+PerformSelectorWithCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PerformSelectorWithCallback.h"; sourceTree = "<group>"; };
 		FF600BEA1B741103005B4DFF /* NSObject+PerformSelectorWithCallback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PerformSelectorWithCallback.m"; sourceTree = "<group>"; };
+		FF600BED1B749A10005B4DFF /* FsPlaceModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FsPlaceModel.xcdatamodel; sourceTree = "<group>"; };
+		FF600BEF1B74AE74005B4DFF /* DataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataHelper.h; sourceTree = "<group>"; };
+		FF600BF01B74AE74005B4DFF /* DataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataHelper.m; sourceTree = "<group>"; };
+		FF600BF21B74B024005B4DFF /* PlaceDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceDetails.h; sourceTree = "<group>"; };
+		FF600BF31B74B024005B4DFF /* PlaceDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceDetails.m; sourceTree = "<group>"; };
+		FF600BF51B74B025005B4DFF /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
+		FF600BF61B74B025005B4DFF /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
 		FF8AB86C1B70ED48003C5BD8 /* AfterSquare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AfterSquare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF8AB8701B70ED48003C5BD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF8AB8711B70ED48003C5BD8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -123,6 +134,10 @@
 		FF8AB86E1B70ED48003C5BD8 /* AfterSquare */ = {
 			isa = PBXGroup;
 			children = (
+				FF600BF51B74B025005B4DFF /* Place.h */,
+				FF600BF61B74B025005B4DFF /* Place.m */,
+				FF600BF21B74B024005B4DFF /* PlaceDetails.h */,
+				FF600BF31B74B024005B4DFF /* PlaceDetails.m */,
 				FF600BE91B741103005B4DFF /* NSObject+PerformSelectorWithCallback.h */,
 				FF600BEA1B741103005B4DFF /* NSObject+PerformSelectorWithCallback.m */,
 				FF8AB8731B70ED48003C5BD8 /* AppDelegate.h */,
@@ -137,9 +152,12 @@
 				FF8AB8991B717F0B003C5BD8 /* PrefixHeader.pch */,
 				FF8AB8761B70ED48003C5BD8 /* ViewController.h */,
 				FF8AB8771B70ED48003C5BD8 /* ViewController.m */,
+				FF600BEF1B74AE74005B4DFF /* DataHelper.h */,
+				FF600BF01B74AE74005B4DFF /* DataHelper.m */,
 				FF8AB8791B70ED48003C5BD8 /* Main.storyboard */,
 				FF8AB87C1B70ED48003C5BD8 /* Images.xcassets */,
 				FF8AB87E1B70ED48003C5BD8 /* LaunchScreen.xib */,
+				FF600BEC1B749A10005B4DFF /* FsPlaceModel.xcdatamodeld */,
 				FF8AB86F1B70ED48003C5BD8 /* Supporting Files */,
 			);
 			path = AfterSquare;
@@ -306,8 +324,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF600BF11B74AE74005B4DFF /* DataHelper.m in Sources */,
+				FF600BEE1B749A10005B4DFF /* FsPlaceModel.xcdatamodeld in Sources */,
+				FF600BF41B74B024005B4DFF /* PlaceDetails.m in Sources */,
 				FF600BE81B72DFCF005B4DFF /* LocationManager.m in Sources */,
 				FF600BEB1B741103005B4DFF /* NSObject+PerformSelectorWithCallback.m in Sources */,
+				FF600BF71B74B025005B4DFF /* Place.m in Sources */,
 				FF8AB8781B70ED48003C5BD8 /* ViewController.m in Sources */,
 				FF8AB8751B70ED48003C5BD8 /* AppDelegate.m in Sources */,
 				FF8AB89B1B717F0B003C5BD8 /* LocationCell.m in Sources */,
@@ -527,6 +549,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FF600BEC1B749A10005B4DFF /* FsPlaceModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FF600BED1B749A10005B4DFF /* FsPlaceModel.xcdatamodel */,
+			);
+			currentVersion = FF600BED1B749A10005B4DFF /* FsPlaceModel.xcdatamodel */;
+			path = FsPlaceModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FF8AB8641B70ED48003C5BD8 /* Project object */;
 }

@@ -27,22 +27,22 @@
 
 -(void)saveFsPlacesData:(NSDictionary *)json{
     NSDictionary* places = json[@"response"][@"venues"];
-    for (NSDictionary *place in places) {
-        [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
+    [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
+        for (NSDictionary *place in places) {
             Place * newPlace = [Place MR_createEntityInContext:localContext];
             if (newPlace.placeDetails == nil) {
                 newPlace.placeDetails = [PlaceDetails MR_createEntityInContext:localContext];
             }
             newPlace.name = place[@"name"];
-            newPlace.distance = place[@"location"][@"distance"];
-            newPlace.category = place[@"categories"][@"name"];
+            newPlace.distance = [place[@"location"][@"distance"] stringValue];
+            newPlace.category = [place[@"categories"] lastObject][@"name"];
             newPlace.placeDetails.city = place[@"location"][@"city"];
             newPlace.placeDetails.street = place[@"location"][@"address"];
-        }];
-    }
-    [self setPlaceMap];
+        }
+    }completion:^(BOOL contextDidSave, NSError *error) {
+            [self setPlaceMap];
+    }];
 }
-
 -(NSMutableArray* )getPlaceMap
 {
     return placeMap;
@@ -50,8 +50,10 @@
 
 -(void)setPlaceMap
 {
+    [self clearPlaceMap];
     placeMap = [[Place MR_findAllSortedBy:@"distance" ascending:NO]copy];
     [[NSManagedObjectContext MR_defaultContext]MR_saveToPersistentStoreAndWait];
+    [[NSNotificationCenter defaultCenter]postNotificationName:CL_MAP_CREATED object:nil];
 }
 
 
@@ -65,6 +67,11 @@
         [Place MR_truncateAll];
         [PlaceDetails MR_truncateAll];
     }];
+}
+
+-(Place*)getPlaceByIndexPath:(NSIndexPath *)path
+{
+    return placeMap[path.row];
 }
 
 @end

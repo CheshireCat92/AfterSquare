@@ -6,10 +6,10 @@
 #import "LocationCell.h"
 
 @implementation LocationCell
-//@synthesize tweetUserImage = _tweetUserImage;
-//@synthesize hashtagLabel = _hashtagLabel;
-//@synthesize tweetPostingDateLabel = _tweetPostingDateLabel;
-//@synthesize tweetTextField = _tweetTextField;
+@synthesize placeCategory = _placeCategory;
+@synthesize placeDistance = _placeDistance;
+@synthesize placeName = _placeName;
+
 
 
 @end
