@@ -10,4 +10,9 @@
 
 @interface DataHelper : NSObject
 
++(id)sharedManager;
+-(void)saveFsPlacesData:(NSDictionary *)json;
+-(NSMutableArray* )getPlaceMap;
+-(void)clearPlaceMap;
+
 @end

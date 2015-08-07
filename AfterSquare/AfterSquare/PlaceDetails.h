@@ -9,12 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class NSManagedObject;
 
 @interface PlaceDetails : NSManagedObject
 
 @property (nonatomic, retain) NSString * city;
 @property (nonatomic, retain) NSString * street;
-@property (nonatomic, retain) NSManagedObject *place;
 
 @end

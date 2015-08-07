@@ -7,13 +7,12 @@
 //
 
 #import "PlaceDetails.h"
-#import "NSManagedObject.h"
+#import "Place.h"
 
 
 @implementation PlaceDetails
 
 @dynamic city;
 @dynamic street;
-@dynamic place;
 
 @end
