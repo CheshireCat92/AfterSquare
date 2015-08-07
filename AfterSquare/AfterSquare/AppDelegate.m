@@ -22,7 +22,7 @@
     [FoursquareManager sharedManager];
     [[AFNetworkActivityLogger sharedLogger] startLogging];
     [[AFNetworkActivityLogger sharedLogger]setLevel:AFLoggerLevelDebug];
-//    [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"TweetModel"];
+    [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"FsPlaceModel"];
     
     return YES;
 }
