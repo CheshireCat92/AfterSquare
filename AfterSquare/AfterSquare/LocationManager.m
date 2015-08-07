@@ -11,7 +11,7 @@
 
 @implementation LocationManager
 {
-    CLLocationManager *manager;
+    CLLocationManager *localManager;
     CLLocation *currentLocation;
     CLGeocoder *geocoder;
     
@@ -30,23 +30,26 @@
 
 -(void)setupLocationUpdates
 {
-    if (!manager){
-        manager = [[CLLocationManager alloc]init];
+    if (!localManager){
+        localManager = [[CLLocationManager alloc]init];
+        localManager.delegate = self;
+        localManager.desiredAccuracy = kCLLocationAccuracyKilometer;
+        localManager.distanceFilter = 300;//300 meters
     }
     if (!geocoder)
     {
         geocoder = [CLGeocoder new];
     }
-    currentLocation = [CLLocation new];
-    manager.delegate = self;
-    manager.desiredAccuracy = kCLLocationAccuracyKilometer;
-    manager.distanceFilter = 300;//300 meters
-    
-    if ([[[UIDevice currentDevice]systemVersion]floatValue] >= 8.0) {
-        [manager requestWhenInUseAuthorization];
+    if  (!currentLocation) {
+        currentLocation = [CLLocation new];
     }
     
-    [manager startUpdatingLocation];
+    
+    if ([[[UIDevice currentDevice]systemVersion]floatValue] >= 8.0) {
+        [localManager requestWhenInUseAuthorization];
+    }
+    
+    [localManager startUpdatingLocation];
 }
 
 -(void)startLocationUpdate
@@ -58,13 +61,13 @@
 {
     switch ([CLLocationManager authorizationStatus]) {
         case kCLAuthorizationStatusNotDetermined:
-            [manager requestWhenInUseAuthorization];
+            [localManager requestWhenInUseAuthorization];
             break;
         case kCLAuthorizationStatusDenied:
-            [manager requestWhenInUseAuthorization];
+            [localManager requestWhenInUseAuthorization];
             break;
         case kCLAuthorizationStatusRestricted:
-            [manager requestWhenInUseAuthorization];
+            [localManager requestWhenInUseAuthorization];
         default:
             break;
     }
@@ -97,6 +100,7 @@
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
     [self setUserLocation:[locations lastObject ] ];
+    [manager stopUpdatingLocation];
     CLLocationAccuracy accuracy = [currentLocation horizontalAccuracy ];
     NSLog(@"last locations is -> %@ accuracy is -> %f", currentLocation,accuracy);
     [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {

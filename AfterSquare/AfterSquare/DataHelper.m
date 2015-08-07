@@ -26,6 +26,7 @@
 }
 
 -(void)saveFsPlacesData:(NSDictionary *)json{
+    [self clearPlaceMap];
     NSDictionary* places = json[@"response"][@"venues"];
     [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
         for (NSDictionary *place in places) {
@@ -50,7 +51,6 @@
 
 -(void)setPlaceMap
 {
-    [self clearPlaceMap];
     placeMap = [[Place MR_findAllSortedBy:@"distance" ascending:NO]copy];
     [[NSManagedObjectContext MR_defaultContext]MR_saveToPersistentStoreAndWait];
     [[NSNotificationCenter defaultCenter]postNotificationName:CL_MAP_CREATED object:nil];

@@ -27,9 +27,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    refresher = [[UIRefreshControl alloc]init];
+    [refresher addTarget:self action:@selector(updatePlaceData:) forControlEvents:UIControlEventValueChanged];
+    [self.placeTableView addSubview:refresher];
     lManager = [LocationManager sharedManager];
     [self.activityIndicator startAnimating];
+    [refresher beginRefreshing];
     [lManager startLocationUpdate];
+    
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(searchNearLocation:) name:CL_CURENT_LOC object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setPlaceMap) name:CL_MAP_CREATED object:nil];
     // Do any additional setup after loading the view, typically from a nib.
@@ -51,6 +57,7 @@
     placeMap = [[DataHelper sharedManager ]getPlaceMap];
     [self.placeTableView reloadData];
     [self.activityIndicator stopAnimating];
+    [refresher endRefreshing];
 }
 
 #pragma mark - TableView Methods
@@ -75,6 +82,11 @@
 
 -(void)setRefresher
 {
+}
+
+-(void)updatePlaceData:(UIRefreshControl *)refreshControl
+{
+    [lManager startLocationUpdate];
 }
 
 @end
