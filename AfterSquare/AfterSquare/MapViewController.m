@@ -10,7 +10,7 @@
 
 @interface MapViewController ()
 {
-    
+    NSDictionary *viewDict;
 }
 @end
 
@@ -21,7 +21,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.mapView.delegate = self;
+    [self.mapView setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self setPinToMap];
+//    [self setDictForBindings];
+//    [self setMapViewConstraints];
+//    [self.view updateConstraints];
     // Do any additional setup after loading the view.
 }
 
@@ -29,17 +33,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 
 -(void)setPinToMap
 {
@@ -57,5 +50,20 @@
     pointAnnotation.title = samePlace.name;
     pointAnnotation.subtitle = samePlace.category;
     [self.mapView addAnnotation:pointAnnotation];
+}
+
+//-(void)setDictForBindings
+//{
+//    viewDict=@{
+//               @"view":self.view,
+//               @"map":self.mapView
+//               };
+//}
+
+
+-(void)setMapViewConstraints
+{
+//    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[map]|" options:0 metrics:nil views:viewDict]];
+//    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[map]|" options:0 metrics:nil views:viewDict]];
 }
 @end
