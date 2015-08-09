@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		7080A2F5CE60F4F7E69661AD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3766999F44EB744017240C9 /* libPods.a */; };
+		FF5C20541B7770740073AA88 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5C20531B7770740073AA88 /* MapViewController.m */; };
 		FF600BE51B72DEFA005B4DFF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF600BE41B72DEFA005B4DFF /* CoreLocation.framework */; };
 		FF600BE81B72DFCF005B4DFF /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF600BE71B72DFCF005B4DFF /* LocationManager.m */; };
 		FF600BEB1B741103005B4DFF /* NSObject+PerformSelectorWithCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = FF600BEA1B741103005B4DFF /* NSObject+PerformSelectorWithCallback.m */; };
 		FF600BEE1B749A10005B4DFF /* FsPlaceModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FF600BEC1B749A10005B4DFF /* FsPlaceModel.xcdatamodeld */; };
 		FF600BF11B74AE74005B4DFF /* DataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FF600BF01B74AE74005B4DFF /* DataHelper.m */; };
-		FF600BF41B74B024005B4DFF /* PlaceDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = FF600BF31B74B024005B4DFF /* PlaceDetails.m */; };
 		FF600BF71B74B025005B4DFF /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = FF600BF61B74B025005B4DFF /* Place.m */; };
 		FF8AB8721B70ED48003C5BD8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8AB8711B70ED48003C5BD8 /* main.m */; };
 		FF8AB8751B70ED48003C5BD8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8AB8741B70ED48003C5BD8 /* AppDelegate.m */; };
@@ -24,6 +24,8 @@
 		FF8AB88C1B70ED48003C5BD8 /* AfterSquareTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8AB88B1B70ED48003C5BD8 /* AfterSquareTests.m */; };
 		FF8AB89A1B717F0B003C5BD8 /* FoursquareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8AB8961B717F0B003C5BD8 /* FoursquareManager.m */; };
 		FF8AB89B1B717F0B003C5BD8 /* LocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8AB8981B717F0B003C5BD8 /* LocationCell.m */; };
+		FFF1DE311B77723400BF3494 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFF1DE301B77723400BF3494 /* MapKit.framework */; };
+		FFF1DE371B7787EF00BF3494 /* PlaceDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF1DE361B7787EF00BF3494 /* PlaceDetails.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		4E9EEA4100911292987C63B6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E3766999F44EB744017240C9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8020121F8573153185D6A63 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		FF5C20521B7770740073AA88 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		FF5C20531B7770740073AA88 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		FF600BE41B72DEFA005B4DFF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		FF600BE61B72DFCF005B4DFF /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
 		FF600BE71B72DFCF005B4DFF /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
@@ -48,8 +52,6 @@
 		FF600BED1B749A10005B4DFF /* FsPlaceModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FsPlaceModel.xcdatamodel; sourceTree = "<group>"; };
 		FF600BEF1B74AE74005B4DFF /* DataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataHelper.h; sourceTree = "<group>"; };
 		FF600BF01B74AE74005B4DFF /* DataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataHelper.m; sourceTree = "<group>"; };
-		FF600BF21B74B024005B4DFF /* PlaceDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceDetails.h; sourceTree = "<group>"; };
-		FF600BF31B74B024005B4DFF /* PlaceDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceDetails.m; sourceTree = "<group>"; };
 		FF600BF51B74B025005B4DFF /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
 		FF600BF61B74B025005B4DFF /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
 		FF8AB86C1B70ED48003C5BD8 /* AfterSquare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AfterSquare.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +73,9 @@
 		FF8AB8981B717F0B003C5BD8 /* LocationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationCell.m; sourceTree = "<group>"; };
 		FF8AB8991B717F0B003C5BD8 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		FF9B21121B72C21C0002968B /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		FFF1DE301B77723400BF3494 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		FFF1DE351B7787EF00BF3494 /* PlaceDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceDetails.h; sourceTree = "<group>"; };
+		FFF1DE361B7787EF00BF3494 /* PlaceDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceDetails.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFF1DE311B77723400BF3494 /* MapKit.framework in Frameworks */,
 				FF600BE51B72DEFA005B4DFF /* CoreLocation.framework in Frameworks */,
 				7080A2F5CE60F4F7E69661AD /* libPods.a in Frameworks */,
 			);
@@ -96,6 +102,7 @@
 		02D814941B2F7F981B220C37 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FFF1DE301B77723400BF3494 /* MapKit.framework */,
 				FF600BE41B72DEFA005B4DFF /* CoreLocation.framework */,
 				E3766999F44EB744017240C9 /* libPods.a */,
 			);
@@ -109,6 +116,53 @@
 				E8020121F8573153185D6A63 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		FF5C204E1B776F120073AA88 /* CoreData Model */ = {
+			isa = PBXGroup;
+			children = (
+				FFF1DE351B7787EF00BF3494 /* PlaceDetails.h */,
+				FFF1DE361B7787EF00BF3494 /* PlaceDetails.m */,
+				FF600BF51B74B025005B4DFF /* Place.h */,
+				FF600BF61B74B025005B4DFF /* Place.m */,
+				FF600BEC1B749A10005B4DFF /* FsPlaceModel.xcdatamodeld */,
+			);
+			name = "CoreData Model";
+			sourceTree = "<group>";
+		};
+		FF5C204F1B776F260073AA88 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				FF600BE91B741103005B4DFF /* NSObject+PerformSelectorWithCallback.h */,
+				FF600BEA1B741103005B4DFF /* NSObject+PerformSelectorWithCallback.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		FF5C20501B776F3E0073AA88 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FF8AB8971B717F0B003C5BD8 /* LocationCell.h */,
+				FF8AB8981B717F0B003C5BD8 /* LocationCell.m */,
+				FF8AB8761B70ED48003C5BD8 /* ViewController.h */,
+				FF8AB8771B70ED48003C5BD8 /* ViewController.m */,
+				FF5C20521B7770740073AA88 /* MapViewController.h */,
+				FF5C20531B7770740073AA88 /* MapViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		FF5C20511B776F520073AA88 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FF8AB8951B717F0B003C5BD8 /* FoursquareManager.h */,
+				FF8AB8961B717F0B003C5BD8 /* FoursquareManager.m */,
+				FF600BE61B72DFCF005B4DFF /* LocationManager.h */,
+				FF600BE71B72DFCF005B4DFF /* LocationManager.m */,
+				FF600BEF1B74AE74005B4DFF /* DataHelper.h */,
+				FF600BF01B74AE74005B4DFF /* DataHelper.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		FF8AB8631B70ED48003C5BD8 = {
@@ -134,30 +188,15 @@
 		FF8AB86E1B70ED48003C5BD8 /* AfterSquare */ = {
 			isa = PBXGroup;
 			children = (
-				FF600BF51B74B025005B4DFF /* Place.h */,
-				FF600BF61B74B025005B4DFF /* Place.m */,
-				FF600BF21B74B024005B4DFF /* PlaceDetails.h */,
-				FF600BF31B74B024005B4DFF /* PlaceDetails.m */,
-				FF600BE91B741103005B4DFF /* NSObject+PerformSelectorWithCallback.h */,
-				FF600BEA1B741103005B4DFF /* NSObject+PerformSelectorWithCallback.m */,
+				FF5C204F1B776F260073AA88 /* Categories */,
+				FF5C204E1B776F120073AA88 /* CoreData Model */,
+				FF5C20511B776F520073AA88 /* Model */,
+				FF5C20501B776F3E0073AA88 /* Controllers */,
 				FF8AB8731B70ED48003C5BD8 /* AppDelegate.h */,
 				FF8AB8741B70ED48003C5BD8 /* AppDelegate.m */,
-				FF9B21121B72C21C0002968B /* Constant.h */,
-				FF8AB8951B717F0B003C5BD8 /* FoursquareManager.h */,
-				FF8AB8961B717F0B003C5BD8 /* FoursquareManager.m */,
-				FF8AB8971B717F0B003C5BD8 /* LocationCell.h */,
-				FF8AB8981B717F0B003C5BD8 /* LocationCell.m */,
-				FF600BE61B72DFCF005B4DFF /* LocationManager.h */,
-				FF600BE71B72DFCF005B4DFF /* LocationManager.m */,
-				FF8AB8991B717F0B003C5BD8 /* PrefixHeader.pch */,
-				FF8AB8761B70ED48003C5BD8 /* ViewController.h */,
-				FF8AB8771B70ED48003C5BD8 /* ViewController.m */,
-				FF600BEF1B74AE74005B4DFF /* DataHelper.h */,
-				FF600BF01B74AE74005B4DFF /* DataHelper.m */,
 				FF8AB8791B70ED48003C5BD8 /* Main.storyboard */,
 				FF8AB87C1B70ED48003C5BD8 /* Images.xcassets */,
 				FF8AB87E1B70ED48003C5BD8 /* LaunchScreen.xib */,
-				FF600BEC1B749A10005B4DFF /* FsPlaceModel.xcdatamodeld */,
 				FF8AB86F1B70ED48003C5BD8 /* Supporting Files */,
 			);
 			path = AfterSquare;
@@ -166,6 +205,8 @@
 		FF8AB86F1B70ED48003C5BD8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FF9B21121B72C21C0002968B /* Constant.h */,
+				FF8AB8991B717F0B003C5BD8 /* PrefixHeader.pch */,
 				FF8AB8701B70ED48003C5BD8 /* Info.plist */,
 				FF8AB8711B70ED48003C5BD8 /* main.m */,
 			);
@@ -326,12 +367,13 @@
 			files = (
 				FF600BF11B74AE74005B4DFF /* DataHelper.m in Sources */,
 				FF600BEE1B749A10005B4DFF /* FsPlaceModel.xcdatamodeld in Sources */,
-				FF600BF41B74B024005B4DFF /* PlaceDetails.m in Sources */,
+				FF5C20541B7770740073AA88 /* MapViewController.m in Sources */,
 				FF600BE81B72DFCF005B4DFF /* LocationManager.m in Sources */,
 				FF600BEB1B741103005B4DFF /* NSObject+PerformSelectorWithCallback.m in Sources */,
 				FF600BF71B74B025005B4DFF /* Place.m in Sources */,
 				FF8AB8781B70ED48003C5BD8 /* ViewController.m in Sources */,
 				FF8AB8751B70ED48003C5BD8 /* AppDelegate.m in Sources */,
+				FFF1DE371B7787EF00BF3494 /* PlaceDetails.m in Sources */,
 				FF8AB89B1B717F0B003C5BD8 /* LocationCell.m in Sources */,
 				FF8AB89A1B717F0B003C5BD8 /* FoursquareManager.m in Sources */,
 				FF8AB8721B70ED48003C5BD8 /* main.m in Sources */,

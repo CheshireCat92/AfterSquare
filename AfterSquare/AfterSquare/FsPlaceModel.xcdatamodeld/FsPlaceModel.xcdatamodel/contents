@@ -8,11 +8,13 @@
     </entity>
     <entity name="PlaceDetails" representedClassName="PlaceDetails" syncable="YES">
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lat" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="lng" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="street" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="place" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Place" inverseName="placeDetails" inverseEntity="Place" syncable="YES"/>
     </entity>
     <elements>
         <element name="Place" positionX="-63" positionY="-18" width="128" height="105"/>
-        <element name="PlaceDetails" positionX="-54" positionY="-9" width="128" height="90"/>
+        <element name="PlaceDetails" positionX="-54" positionY="-9" width="128" height="120"/>
     </elements>
 </model>

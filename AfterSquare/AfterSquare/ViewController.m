@@ -5,6 +5,7 @@
 //  Created by Cheshire on 04.08.15.
 //  Copyright (c) 2015 Cheshire. All rights reserved.
 //
+#import "MapViewController.h"
 #import "Place.h"
 #import "PlaceDetails.h"
 #import "LocationCell.h"
@@ -87,6 +88,15 @@
 -(void)updatePlaceData:(UIRefreshControl *)refreshControl
 {
     [lManager startLocationUpdate];
+}
+
+#pragma mark - Segues
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    NSLog(@"Seg started");
+    MapViewController *upcomingMapView = segue.destinationViewController;
+    NSIndexPath *indexPath = [self.placeTableView indexPathForSelectedRow];
+    Place *samePlace = placeMap[indexPath.row];
+    upcomingMapView.samePlace = samePlace;
 }
 
 @end

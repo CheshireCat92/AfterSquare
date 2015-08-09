@@ -39,6 +39,8 @@
             newPlace.category = [place[@"categories"] lastObject][@"name"];
             newPlace.placeDetails.city = place[@"location"][@"city"];
             newPlace.placeDetails.street = place[@"location"][@"address"];
+            newPlace.placeDetails.lng = place[@"location"][@"lng"];
+            newPlace.placeDetails.lat = place[@"location"][@"lat"];
         }
     }completion:^(BOOL contextDidSave, NSError *error) {
             [self setPlaceMap];

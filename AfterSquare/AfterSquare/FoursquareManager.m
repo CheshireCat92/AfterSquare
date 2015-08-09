@@ -54,9 +54,6 @@
 //    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 //        NSLog(@"Login failure with error -> %@", error);
 //    }];
-
-    
-    
 }
 
 -(void)searchLocationsNearLocation:(CLPlacemark *)place

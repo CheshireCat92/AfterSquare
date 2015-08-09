@@ -105,7 +105,7 @@
     NSLog(@"last locations is -> %@ accuracy is -> %f", currentLocation,accuracy);
     [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
         if (placemarks.count ==1) {
-             [[NSNotificationCenter defaultCenter]postNotificationName:CL_CURENT_LOC object:[placemarks lastObject] ] ;
+             [[NSNotificationCenter defaultCenter]postNotificationName:CL_CURENT_LOC object:[placemarks lastObject]] ;
         };
     }];
 }
