@@ -62,7 +62,7 @@
 -(void)clearPlaceMap
 {
     if (!placeMap) {
-        return;
+        placeMap = [[Place MR_findAll] copy];
     }
     
     [placeMap enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
