@@ -43,12 +43,6 @@
     if  (!currentLocation) {
         currentLocation = [CLLocation new];
     }
-    
-    
-    if ([[[UIDevice currentDevice]systemVersion]floatValue] >= 8.0) {
-        [localManager requestWhenInUseAuthorization];
-    }
-    
     [localManager startUpdatingLocation];
 }
 
