@@ -66,7 +66,7 @@
     NSMutableDictionary *params = [NSMutableDictionary new];
     params[@"ll"] = [NSString stringWithFormat:@"%f,%f",place.location.coordinate.latitude,place.location.coordinate.longitude];
     params[@"near"] = [NSString stringWithFormat:@"%@ %@",place.locality,place.administrativeArea];
-    params[@"limit"] = @"10";
+    params[@"limit"] = @"50";
     params[@"intent"] = @"browse";
     params[@"radius"] = @"800";
     params[@"client_id"] = FS_CLIENT_ID;
