@@ -50,15 +50,21 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XmS-2G-GU0">
-                                                    <rect key="frame" x="9" y="45" width="183" height="21"/>
+                                                    <rect key="frame" x="9" y="45" width="300" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="183" id="JUp-1a-Glk">
+                                                        <constraint firstAttribute="width" constant="300" id="JUp-1a-Glk">
+                                                            <variation key="widthClass=compact" constant="270"/>
                                                             <variation key="heightClass=compact-widthClass=regular" constant="369"/>
                                                         </constraint>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=compact-widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <exclude reference="JUp-1a-Glk"/>
+                                                        </mask>
+                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Distance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5CB-Ss-EXz">
                                                     <rect key="frame" x="487" y="45" width="112" height="21"/>
@@ -81,9 +87,9 @@
                                                     <variation key="heightClass=compact-widthClass=compact" constant="57"/>
                                                     <variation key="heightClass=regular-widthClass=compact" constant="118"/>
                                                 </constraint>
-                                                <constraint firstItem="XmS-2G-GU0" firstAttribute="trailing" secondItem="5uw-yG-x0F" secondAttribute="trailing" constant="-400" id="6fx-b6-9oN">
-                                                    <variation key="heightClass=compact" constant="-400"/>
-                                                    <variation key="widthClass=compact" constant="-200"/>
+                                                <constraint firstItem="XmS-2G-GU0" firstAttribute="trailing" secondItem="5uw-yG-x0F" secondAttribute="trailing" constant="-283" id="6fx-b6-9oN">
+                                                    <variation key="heightClass=compact" constant="-283"/>
+                                                    <variation key="widthClass=compact" constant="-230"/>
                                                     <variation key="heightClass=compact-widthClass=compact" constant="-200"/>
                                                     <variation key="heightClass=compact-widthClass=regular" constant="-207"/>
                                                 </constraint>
@@ -171,7 +177,7 @@
                                                     <include reference="cCB-XO-uxu"/>
                                                     <exclude reference="69y-CS-ZJu"/>
                                                     <include reference="E8Z-Ka-oe8"/>
-                                                    <include reference="U5o-A2-ZEG"/>
+                                                    <exclude reference="U5o-A2-ZEG"/>
                                                     <include reference="VsY-dH-iHf"/>
                                                     <include reference="kB4-x8-91W"/>
                                                     <include reference="oeW-RG-z5z"/>

@@ -11,14 +11,16 @@
 #import "LocationCell.h"
 #import "NSObject+PerformSelectorWithCallback.h"
 #import "DataHelper.h"
-#import "LocationManager.h"
 #import "FoursquareManager.h"
 #import "ViewController.h"
 @interface ViewController ()
 {
-    LocationManager *lManager;
     NSMutableArray *placeMap;
     UIRefreshControl *refresher;
+    
+    CLLocationManager *localManager;
+    CLLocation *currentLocation;
+    CLGeocoder *geocoder;
 }
 @end
 
@@ -26,42 +28,34 @@
 @synthesize placeTableView;
 @synthesize activityIndicator;
 @synthesize showAllPlaces;
+@synthesize currentLocation;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     showAllPlaces.enabled = NO;
     refresher = [[UIRefreshControl alloc]init];
     [refresher addTarget:self action:@selector(updatePlaceData:) forControlEvents:UIControlEventValueChanged];
-    [self.placeTableView addSubview:refresher];
-    lManager = [LocationManager sharedManager];
-    [self.activityIndicator startAnimating];
+    [placeTableView addSubview:refresher];
+    [activityIndicator startAnimating];
     [refresher beginRefreshing];
-    [lManager startLocationUpdate];
-    
+    [self startLocationUpdate];
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(searchNearLocation:) name:CL_CURENT_LOC object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setPlaceMap) name:CL_MAP_CREATED object:nil];
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
--(void)searchNearLocation:(NSNotification *)notification
-{
-   [[FoursquareManager sharedManager]searchLocationsNearLocation:notification.object];
-}
 
 -(void)setPlaceMap
 {
     placeMap = [[DataHelper sharedManager ]getPlaceMap];
     if (placeMap) {
         showAllPlaces.enabled = YES;
-        [self.placeTableView reloadData];
-        [self.activityIndicator stopAnimating];
+        [placeTableView reloadData];
+        [activityIndicator stopAnimating];
         [refresher endRefreshing];
     }
 
@@ -94,7 +88,7 @@
 
 -(void)updatePlaceData:(UIRefreshControl *)refreshControl
 {
-    [lManager startLocationUpdate];
+    [self startLocationUpdate];
 }
 
 #pragma mark - Segues
@@ -110,5 +104,72 @@
         upcomingMapView.samePlace = samePlace;
     }
 }
+
+#pragma mark - Location
+
+
+-(void)setupLocationUpdates
+{
+    if (!localManager){
+        localManager = [[CLLocationManager alloc]init];
+        localManager.delegate = self;
+        localManager.desiredAccuracy = kCLLocationAccuracyKilometer;
+        localManager.distanceFilter = 300;//300 meters
+    }
+    if (!geocoder)
+    {
+        geocoder = [CLGeocoder new];
+    }
+    if  (!currentLocation) {
+        currentLocation = [CLLocation new];
+    }
+    [localManager startUpdatingLocation];
+}
+
+-(void)startLocationUpdate
+{
+    [self setupLocationUpdates];
+}
+
+-(void)getGeolocationPermissions
+{
+    switch ([CLLocationManager authorizationStatus]) {
+        case kCLAuthorizationStatusNotDetermined:
+            [localManager requestWhenInUseAuthorization];
+            break;
+        case kCLAuthorizationStatusDenied:
+            [localManager requestWhenInUseAuthorization];
+            break;
+        case kCLAuthorizationStatusRestricted:
+            [localManager requestWhenInUseAuthorization];
+        default:
+            break;
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
+    if  (status != kCLAuthorizationStatusAuthorizedWhenInUse && status != kCLAuthorizationStatusAuthorizedAlways)
+    {
+        [self getGeolocationPermissions ];
+    }
+}
+
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
+    UIAlertView *errorAlertView = [[UIAlertView alloc]initWithTitle:@"Same Error" message:@"Failed to get Location" delegate:nil cancelButtonTitle:@"OK =(" otherButtonTitles: nil];
+    [errorAlertView show];
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
+    currentLocation = [locations lastObject ];
+    [manager stopUpdatingLocation];
+    CLLocationAccuracy accuracy = [currentLocation horizontalAccuracy ];
+    NSLog(@"last locations is -> %@ accuracy is -> %f", currentLocation,accuracy);
+    [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+        if (placemarks.count ==1) {
+             [[FoursquareManager sharedManager]searchLocationsNearLocation:[placemarks lastObject]];
+        };
+    }];
+}
+
 
 @end
