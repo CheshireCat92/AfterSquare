@@ -13,9 +13,18 @@
 
 @interface MapViewController : UIViewController <MKMapViewDelegate>
 
-@property (strong, nonatomic) Place *samePlace;
-@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (strong, nonatomic) Place          *samePlace;
 @property (strong, nonatomic) NSMutableArray *placeMap;
-@property (weak, nonatomic) IBOutlet MKMapView *allPlaceMapView;
+
+@property (weak, nonatomic  ) IBOutlet MKMapView      *mapView;
+@property (weak, nonatomic  ) IBOutlet MKMapView      *allPlaceMapView;
+@property (weak, nonatomic  ) IBOutlet UILabel        *placeNameLabel;
+@property (weak, nonatomic  ) IBOutlet UILabel        *placeCategoryLabel;
+@property (weak, nonatomic  ) IBOutlet UILabel        *placeCityLabel;
+@property (weak, nonatomic  ) IBOutlet UILabel        *placeStreetLabel;
+@property (weak, nonatomic  ) IBOutlet UILabel        *placeDistanceLabel;
+
+
+
 
 @end

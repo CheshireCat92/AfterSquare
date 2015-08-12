@@ -40,20 +40,6 @@
 -(void)fsAuthorize
 {
 
-//    NSString *bearerKey = [NSString stringWithFormat:@"%@:%@",TW_CONS_KEY,TW_CONS_SECRET];
-//    NSData *authData = [bearerKey dataUsingEncoding:NSUTF8StringEncoding];
-//    NSString *authString = [NSString stringWithFormat:@"Basic %@",[authData base64EncodedStringWithOptions:0]];
-//    NSMutableDictionary *params = [NSMutableDictionary new];
-//        params[@"grant_type"] = @"client_credentials";
-//
-//    [manager.requestSerializer setValue:authString forHTTPHeaderField:@"Authorization"];
-//    [manager.requestSerializer setValue:@"application/x-www-form-urlencoded;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
-//    [manager POST:@"oauth2/token" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSLog(@"Login complete wit object -> %@", responseObject);
-//        bearerToken = [NSString stringWithFormat:@"Bearer %@",[responseObject objectForKey:@"access_token"]];
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"Login failure with error -> %@", error);
-//    }];
 }
 
 -(void)searchLocationsNearLocation:(CLPlacemark *)place

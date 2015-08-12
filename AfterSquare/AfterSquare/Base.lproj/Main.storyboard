@@ -261,22 +261,77 @@
                                     <outlet property="delegate" destination="uof-qp-VPl" id="YHq-ig-CMI"/>
                                 </connections>
                             </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsz-TR-x3y">
+                                <rect key="frame" x="16" y="407" width="568" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0P-ip-3Uf">
+                                <rect key="frame" x="16" y="436" width="568" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oif-6a-D95">
+                                <rect key="frame" x="16" y="465" width="568" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Street" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3kI-fi-2uP">
+                                <rect key="frame" x="16" y="494" width="568" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ndE-MA-dTi">
+                                <rect key="frame" x="16" y="523" width="568" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ndE-MA-dTi" firstAttribute="top" secondItem="3kI-fi-2uP" secondAttribute="bottom" constant="8" id="3Ru-2H-Z66"/>
+                            <constraint firstItem="3kI-fi-2uP" firstAttribute="top" secondItem="Oif-6a-D95" secondAttribute="bottom" constant="8" id="6F3-Xz-SsN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Oif-6a-D95" secondAttribute="trailing" id="BNN-iA-cTg"/>
+                            <constraint firstItem="hsz-TR-x3y" firstAttribute="top" secondItem="c0L-cB-ZRH" secondAttribute="bottom" constant="18" id="Bcl-6S-Ihd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hsz-TR-x3y" secondAttribute="trailing" id="C2H-cm-CEq"/>
                             <constraint firstAttribute="trailing" secondItem="c0L-cB-ZRH" secondAttribute="trailing" id="COD-dH-pzD"/>
+                            <constraint firstItem="b0P-ip-3Uf" firstAttribute="top" secondItem="hsz-TR-x3y" secondAttribute="bottom" constant="8" id="DSf-bH-fbF"/>
+                            <constraint firstItem="hsz-TR-x3y" firstAttribute="leading" secondItem="pe9-j2-7Qj" secondAttribute="leadingMargin" id="M1B-iI-edi"/>
+                            <constraint firstItem="Oif-6a-D95" firstAttribute="top" secondItem="b0P-ip-3Uf" secondAttribute="bottom" constant="8" id="OCf-Eg-pEt"/>
+                            <constraint firstItem="Oif-6a-D95" firstAttribute="top" secondItem="b0P-ip-3Uf" secondAttribute="bottom" constant="8" id="QNN-Q8-V5H"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="b0P-ip-3Uf" secondAttribute="trailing" id="V4B-iH-Apq"/>
                             <constraint firstItem="c0L-cB-ZRH" firstAttribute="top" secondItem="0wu-8L-S5B" secondAttribute="bottom" id="WSG-eS-Zoj"/>
+                            <constraint firstItem="ndE-MA-dTi" firstAttribute="top" secondItem="3kI-fi-2uP" secondAttribute="bottom" constant="8" id="aCu-ye-p1Z"/>
+                            <constraint firstItem="649-Ak-91q" firstAttribute="top" secondItem="ndE-MA-dTi" secondAttribute="bottom" constant="56" id="ath-Qn-1qA"/>
                             <constraint firstItem="c0L-cB-ZRH" firstAttribute="leading" secondItem="pe9-j2-7Qj" secondAttribute="leading" id="bue-Zd-IID"/>
+                            <constraint firstItem="b0P-ip-3Uf" firstAttribute="leading" secondItem="pe9-j2-7Qj" secondAttribute="leadingMargin" id="cPM-BH-Gon"/>
+                            <constraint firstItem="3kI-fi-2uP" firstAttribute="top" secondItem="Oif-6a-D95" secondAttribute="bottom" constant="8" id="d1f-Vr-h3x"/>
+                            <constraint firstItem="ndE-MA-dTi" firstAttribute="leading" secondItem="pe9-j2-7Qj" secondAttribute="leadingMargin" id="eQE-57-zOK"/>
+                            <constraint firstItem="3kI-fi-2uP" firstAttribute="leading" secondItem="pe9-j2-7Qj" secondAttribute="leadingMargin" id="kCc-y9-myW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3kI-fi-2uP" secondAttribute="trailing" id="n8N-rP-sTf"/>
                             <constraint firstItem="c0L-cB-ZRH" firstAttribute="bottom" secondItem="649-Ak-91q" secondAttribute="top" constant="-211" id="o7U-tr-Gco"/>
+                            <constraint firstItem="Oif-6a-D95" firstAttribute="leading" secondItem="pe9-j2-7Qj" secondAttribute="leadingMargin" id="p4N-yn-Y8f"/>
+                            <constraint firstItem="b0P-ip-3Uf" firstAttribute="top" secondItem="hsz-TR-x3y" secondAttribute="bottom" constant="8" id="pPn-rO-iay"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ndE-MA-dTi" secondAttribute="trailing" id="yba-8h-J4A"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="c0L-cB-ZRH" id="ncf-uX-oZq"/>
+                        <outlet property="placeCategoryLabel" destination="b0P-ip-3Uf" id="aCv-6K-eiz"/>
+                        <outlet property="placeCityLabel" destination="Oif-6a-D95" id="e2w-1L-9jl"/>
+                        <outlet property="placeDistanceLabel" destination="ndE-MA-dTi" id="93N-u6-WAT"/>
+                        <outlet property="placeNameLabel" destination="hsz-TR-x3y" id="27r-1q-dQX"/>
+                        <outlet property="placeStreetLabel" destination="3kI-fi-2uP" id="IST-8s-599"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xu9-J3-FMn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1754" y="585"/>
+            <point key="canvasLocation" x="1753" y="585"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="ERA-IA-xN3">
