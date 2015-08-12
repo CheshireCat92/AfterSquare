@@ -15,17 +15,15 @@
 @end
 
 @implementation MapViewController
-@synthesize mapView = _mapView;
+@synthesize mapView,allPlaceMapView  ;
 @synthesize samePlace;
+@synthesize placeMap ;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.mapView.delegate = self;
     [self.mapView setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self setPinToMap];
-//    [self setDictForBindings];
-//    [self setMapViewConstraints];
-//    [self.view updateConstraints];
     // Do any additional setup after loading the view.
 }
 
@@ -36,34 +34,41 @@
 
 -(void)setPinToMap
 {
-    CLLocationDegrees lat = [samePlace.placeDetails.lat doubleValue];
-    CLLocationDegrees lng = [samePlace.placeDetails.lng doubleValue];
+    if (samePlace != nil ) {
+        [self prepareForClippingPinForPlace:samePlace];
+    }
+    else if (placeMap.count >= 1 ){
+        for (Place* place in placeMap) {
+            [self prepareForClippingPinForPlace:place];
+        }
+    }
+    
+}
+
+-(void)prepareForClippingPinForPlace:(Place*)place
+{
+    CLLocationDegrees lat = [place.placeDetails.lat doubleValue];
+    CLLocationDegrees lng = [place.placeDetails.lng doubleValue];
     CLLocationCoordinate2D cords = CLLocationCoordinate2DMake(lat,lng);
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(cords, 800, 800);
     [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
-    [self setAnnotationForPointWithCords:cords];
+    [self setAnnotationForPointWithCords:cords Name:place.name andCategory:place.category forMap:allPlaceMapView];
 }
 
--(void)setAnnotationForPointWithCords:(CLLocationCoordinate2D)cords{
+-(void)setAnnotationForPointWithCords:(CLLocationCoordinate2D)cords Name:(NSString *)name andCategory:(NSString *)category forMap:(MKMapView *)map {
     MKPointAnnotation *pointAnnotation = [MKPointAnnotation new];
     pointAnnotation.coordinate = cords;
-    pointAnnotation.title = samePlace.name;
-    pointAnnotation.subtitle = samePlace.category;
-    [self.mapView addAnnotation:pointAnnotation];
+    pointAnnotation.title = name;
+    pointAnnotation.subtitle = category;
+    [map addAnnotation:pointAnnotation];
 }
 
-//-(void)setDictForBindings
-//{
-//    viewDict=@{
-//               @"view":self.view,
-//               @"map":self.mapView
-//               };
-//}
-
-
--(void)setMapViewConstraints
+-(void)clearPlaceData
 {
-//    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[map]|" options:0 metrics:nil views:viewDict]];
-//    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[map]|" options:0 metrics:nil views:viewDict]];
+    samePlace = nil;
+    placeMap = nil;
 }
+
+
+
 @end

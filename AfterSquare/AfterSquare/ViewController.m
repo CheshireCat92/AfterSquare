@@ -23,11 +23,13 @@
 @end
 
 @implementation ViewController
-@synthesize placeTableView = _placeTableView;
-@synthesize activityIndicator = _activityIndicator;
+@synthesize placeTableView;
+@synthesize activityIndicator;
+@synthesize showAllPlaces;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    showAllPlaces.enabled = NO;
     refresher = [[UIRefreshControl alloc]init];
     [refresher addTarget:self action:@selector(updatePlaceData:) forControlEvents:UIControlEventValueChanged];
     [self.placeTableView addSubview:refresher];
@@ -56,9 +58,13 @@
 -(void)setPlaceMap
 {
     placeMap = [[DataHelper sharedManager ]getPlaceMap];
-    [self.placeTableView reloadData];
-    [self.activityIndicator stopAnimating];
-    [refresher endRefreshing];
+    if (placeMap) {
+        showAllPlaces.enabled = YES;
+        [self.placeTableView reloadData];
+        [self.activityIndicator stopAnimating];
+        [refresher endRefreshing];
+    }
+
 }
 
 #pragma mark - TableView Methods
@@ -83,6 +89,7 @@
 
 -(void)setRefresher
 {
+    
 }
 
 -(void)updatePlaceData:(UIRefreshControl *)refreshControl
@@ -94,9 +101,14 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     NSLog(@"Seg started");
     MapViewController *upcomingMapView = segue.destinationViewController;
-    NSIndexPath *indexPath = [self.placeTableView indexPathForSelectedRow];
-    Place *samePlace = placeMap[indexPath.row];
-    upcomingMapView.samePlace = samePlace;
+    if ([sender isKindOfClass:[UIButton class]]) {
+        NSLog(@"show all places");
+        upcomingMapView.placeMap = placeMap;
+    }else{
+        NSIndexPath *indexPath = [self.placeTableView indexPathForSelectedRow];
+        Place *samePlace = placeMap[indexPath.row];
+        upcomingMapView.samePlace = samePlace;
+    }
 }
 
 @end

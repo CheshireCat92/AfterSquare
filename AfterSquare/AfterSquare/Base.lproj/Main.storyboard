@@ -48,9 +48,6 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="9" y="8" width="383" height="28"/>
-                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XmS-2G-GU0">
                                                     <rect key="frame" x="9" y="45" width="183" height="21"/>
@@ -110,7 +107,9 @@
                                                     <variation key="heightClass=compact-widthClass=compact" constant="259"/>
                                                     <variation key="heightClass=compact-widthClass=regular" constant="576"/>
                                                 </constraint>
-                                                <constraint firstItem="XmS-2G-GU0" firstAttribute="top" secondItem="5uw-yG-x0F" secondAttribute="bottom" constant="16" id="cCB-XO-uxu"/>
+                                                <constraint firstItem="XmS-2G-GU0" firstAttribute="top" secondItem="5uw-yG-x0F" secondAttribute="bottom" constant="16" id="cCB-XO-uxu">
+                                                    <variation key="heightClass=compact-widthClass=compact" constant="8"/>
+                                                </constraint>
                                                 <constraint firstAttribute="bottomMargin" secondItem="5uw-yG-x0F" secondAttribute="bottom" constant="42" id="cNU-mX-h5B">
                                                     <variation key="heightClass=compact" constant="42"/>
                                                     <variation key="widthClass=compact" constant="42"/>
@@ -188,7 +187,7 @@
                                             </variation>
                                             <variation key="heightClass=compact-widthClass=compact">
                                                 <mask key="constraints">
-                                                    <include reference="Jbb-bY-f5I"/>
+                                                    <exclude reference="Jbb-bY-f5I"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=compact-widthClass=regular">
@@ -222,10 +221,22 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="i7d-5e-wuh" secondAttribute="bottom" id="oXJ-VG-ja7"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="jxN-pw-5q4"/>
+                    <navigationItem key="navigationItem" id="jxN-pw-5q4">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="E1D-w8-gP6">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WZg-UO-jDl">
+                                <rect key="frame" x="-23" y="-15" width="133" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Places"/>
+                                <connections>
+                                    <segue destination="2OE-lN-H9S" kind="show" id="oMh-uC-nwF"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="K6t-Wh-lvD" id="mad-Ge-wWw"/>
                         <outlet property="placeTableView" destination="i7d-5e-wuh" id="1cF-ir-cmY"/>
+                        <outlet property="showAllPlaces" destination="WZg-UO-jDl" id="kwt-6T-hHR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -235,7 +246,7 @@
         <!--Map View Controller-->
         <scene sceneID="TtQ-TM-PWF">
             <objects>
-                <viewController id="uof-qp-VPl" customClass="MapViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="10" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uof-qp-VPl" customClass="MapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0wu-8L-S5B"/>
                         <viewControllerLayoutGuide type="bottom" id="649-Ak-91q"/>
@@ -265,7 +276,42 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xu9-J3-FMn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1704" y="1020"/>
+            <point key="canvasLocation" x="1754" y="585"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="ERA-IA-xN3">
+            <objects>
+                <viewController storyboardIdentifier="20" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2OE-lN-H9S" customClass="MapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bME-Fa-Rvf"/>
+                        <viewControllerLayoutGuide type="bottom" id="Qkx-M3-7oC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AVF-8z-vkV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zCp-9N-o5M">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <connections>
+                                    <outlet property="delegate" destination="uof-qp-VPl" id="26b-gi-Dfj"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Qkx-M3-7oC" firstAttribute="top" secondItem="zCp-9N-o5M" secondAttribute="bottom" id="TYD-8F-nTN"/>
+                            <constraint firstItem="zCp-9N-o5M" firstAttribute="leading" secondItem="AVF-8z-vkV" secondAttribute="leadingMargin" constant="-16" id="iE2-tU-Da7"/>
+                            <constraint firstItem="zCp-9N-o5M" firstAttribute="top" secondItem="bME-Fa-Rvf" secondAttribute="bottom" id="pdo-zY-qei"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zCp-9N-o5M" secondAttribute="trailing" constant="-16" id="rQW-gX-SHv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="allPlaceMapView" destination="zCp-9N-o5M" id="hvM-ci-jNh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6fx-Xb-LgP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1754" y="1254"/>
         </scene>
     </scenes>
 </document>
