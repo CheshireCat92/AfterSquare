@@ -15,7 +15,7 @@
 @end
 
 @implementation MapViewController
-@synthesize mapView,allPlaceMapView  ;
+@synthesize mapView,allPlaceMapView;
 @synthesize samePlace;
 @synthesize placeMap ;
 

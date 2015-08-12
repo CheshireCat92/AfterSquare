@@ -8,9 +8,9 @@
 @interface LocationCell : UITableViewCell
 
 
-@property (strong, nonatomic) IBOutlet UILabel *placeName;
-@property (strong, nonatomic) IBOutlet UILabel *placeCategory;
-@property (strong, nonatomic) IBOutlet UILabel *placeDistance;
+@property (weak, nonatomic) IBOutlet UILabel *placeName;
+@property (weak, nonatomic) IBOutlet UILabel *placeCategory;
+@property (weak, nonatomic) IBOutlet UILabel *placeDistance;
 
 
 

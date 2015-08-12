@@ -6,9 +6,9 @@
 #import "LocationCell.h"
 
 @implementation LocationCell
-@synthesize placeCategory = _placeCategory;
-@synthesize placeDistance = _placeDistance;
-@synthesize placeName = _placeName;
+@synthesize placeCategory;
+@synthesize placeDistance;
+@synthesize placeName;
 
 
 
