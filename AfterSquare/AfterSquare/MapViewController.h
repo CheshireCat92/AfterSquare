@@ -15,6 +15,7 @@
 
 @property (strong, nonatomic) Place          *samePlace;
 @property (strong, nonatomic) NSMutableArray *placeMap;
+@property (strong, nonatomic) CLLocation *currentLocation;
 
 @property (weak, nonatomic  ) IBOutlet MKMapView      *mapView;
 @property (weak, nonatomic  ) IBOutlet MKMapView      *allPlaceMapView;

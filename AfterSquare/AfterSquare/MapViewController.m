@@ -19,6 +19,7 @@
 @synthesize samePlace;
 @synthesize placeMap ;
 @synthesize placeCategoryLabel,placeCityLabel,placeDistanceLabel,placeNameLabel,placeStreetLabel;
+@synthesize currentLocation;
 
 - (void)viewDidLoad {
     [super viewDidLoad ];
@@ -42,9 +43,10 @@
     if (samePlace != nil ) {
         [placeNameLabel     setText:samePlace.name ];
         [placeCategoryLabel setText:samePlace.category ];
-        [placeDistanceLabel setText:samePlace.distance ];
+        [placeDistanceLabel setText:[self getDistanceFromCurrentLocationToPlace:samePlace]];
         [placeCityLabel     setText:samePlace.placeDetails.city ];
         [placeStreetLabel   setText:samePlace.placeDetails.street ];
+        
         [self prepareForClippingPinForPlace:samePlace forView:mapView];
     }
     else if (placeMap.count >= 1 ){
@@ -53,6 +55,13 @@
         }
     }
     
+}
+
+-(NSString* )getDistanceFromCurrentLocationToPlace:(Place*)place{
+    CLLocationDegrees lat        = [place.placeDetails.lat doubleValue ];
+    CLLocationDegrees lng        = [place.placeDetails.lng doubleValue ];
+    CLLocation *placeLoc = [[CLLocation alloc]initWithLatitude:lat longitude:lng];
+    return [NSString stringWithFormat:@"%f",[currentLocation distanceFromLocation:placeLoc]/1000]; //km
 }
 
 -(void)prepareForClippingPinForPlace:(Place*)place forView:(MKMapView *)neededMapView

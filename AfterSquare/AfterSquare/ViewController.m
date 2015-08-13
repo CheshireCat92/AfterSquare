@@ -83,8 +83,7 @@
     Place *samePlace = placeMap[indexPath.row];
     [cell.placeName setText:samePlace.name ];
     [cell.placeCategory setText:samePlace.category];
-    [cell.placeDistance setText:samePlace.distance];
-    
+    [cell.placeDistance setText:[self getDistanceFromCurrentLocationToPlace:samePlace]];
     return cell;
 }
 
@@ -110,6 +109,7 @@
         NSIndexPath *indexPath = [self.placeTableView indexPathForSelectedRow];
         Place *samePlace = placeMap[indexPath.row];
         upcomingMapView.samePlace = samePlace;
+        upcomingMapView.currentLocation = currentLocation;
     }
 }
 
@@ -180,6 +180,13 @@
              [[FoursquareManager sharedManager]searchLocationsNearLocation:[placemarks lastObject]];
         };
     }];
+}
+
+-(NSString* )getDistanceFromCurrentLocationToPlace:(Place*)place{
+    CLLocationDegrees lat        = [place.placeDetails.lat doubleValue ];
+    CLLocationDegrees lng        = [place.placeDetails.lng doubleValue ];
+    CLLocation *placeLoc = [[CLLocation alloc]initWithLatitude:lat longitude:lng];
+    return [NSString stringWithFormat:@"%f",[currentLocation distanceFromLocation:placeLoc]/1000]; //km
 }
 
 #pragma mark - Network
