@@ -74,4 +74,26 @@
     return [formatter stringFromDate:dateStamp];
 }
 
+//-(void)startCheckConnection{
+////    BOOL result;
+//    NSOperationQueue *operationQueue = manager.operationQueue;
+//    [manager.reachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+//        switch (status) {
+//            case AFNetworkReachabilityStatusReachableViaWWAN:
+//            case AFNetworkReachabilityStatusReachableViaWiFi:
+//                [operationQueue setSuspended:NO];
+//                break;
+//            case AFNetworkReachabilityStatusNotReachable:
+//            default:
+//                [operationQueue setSuspended:YES];
+//                break;
+//        }
+//    }];
+//    [manager.reachabilityManager startMonitoring];
+//}
+//
+//-(BOOL)isConnected{
+//    return manager.reachabilityManager.reachable;
+//};
+
 @end

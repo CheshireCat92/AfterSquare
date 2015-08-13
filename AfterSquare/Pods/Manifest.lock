@@ -24,15 +24,18 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - MagicalRecord (2.3.0)
+  - Reachability (3.2)
 
 DEPENDENCIES:
   - AFNetworkActivityLogger (~> 2.0)
   - AFNetworking (~> 2.0)
   - MagicalRecord
+  - Reachability
 
 SPEC CHECKSUMS:
   AFNetworkActivityLogger: cb33fa8f2b540d6a526a18a0630d6bbec50f1512
   AFNetworking: 86df366d46ebb9f15074a8e7c6eb9fd41fa8b501
   MagicalRecord: f6dc86ff575c275e546ac3f439a213936e8f2085
+  Reachability: 3c71d50935b3b3160760ffc6932418fb229c5544
 
 COCOAPODS: 0.38.0

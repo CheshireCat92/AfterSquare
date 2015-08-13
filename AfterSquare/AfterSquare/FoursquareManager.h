@@ -13,5 +13,7 @@
 +(id)sharedManager;
 -(void)searchLocationsNearLocation:(CLPlacemark *)location;
 -(void)fsAuthorize;
+//-(void)startCheckConnection;
+//-(BOOL)isConnected;
 
 @end

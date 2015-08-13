@@ -5,6 +5,7 @@
 //  Created by Cheshire on 04.08.15.
 //  Copyright (c) 2015 Cheshire. All rights reserved.
 //
+#import <Reachability.h>
 #import "MapViewController.h"
 #import "Place.h"
 #import "PlaceDetails.h"
@@ -19,8 +20,8 @@
     UIRefreshControl *refresher;
     
     CLLocationManager *localManager;
-    CLLocation *currentLocation;
     CLGeocoder *geocoder;
+    Reachability *networkReachable;
 }
 @end
 
@@ -30,17 +31,21 @@
 @synthesize showAllPlaces;
 @synthesize currentLocation;
 
+-(void)viewWillAppear:(BOOL)animated{
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self checkNetworkAvailable];
     showAllPlaces.enabled = NO;
     refresher = [[UIRefreshControl alloc]init];
     [refresher addTarget:self action:@selector(updatePlaceData:) forControlEvents:UIControlEventValueChanged];
     [placeTableView addSubview:refresher];
-    [activityIndicator startAnimating];
-    [refresher beginRefreshing];
     [self startLocationUpdate];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setPlaceMap) name:CL_MAP_CREATED object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkReachabilityChanged:) name:kReachabilityChangedNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,10 +60,14 @@
     if (placeMap) {
         showAllPlaces.enabled = YES;
         [placeTableView reloadData];
-        [activityIndicator stopAnimating];
-        [refresher endRefreshing];
     }
+    [self stopLocationUpdate];
+}
 
+-(void)stopLocationUpdate{
+    [activityIndicator stopAnimating];
+    [refresher endRefreshing];
+    [localManager stopUpdatingLocation];
 }
 
 #pragma mark - TableView Methods
@@ -81,14 +90,13 @@
 
 #pragma mark - Refresh Controller
 
--(void)setRefresher
-{
-    
-}
-
 -(void)updatePlaceData:(UIRefreshControl *)refreshControl
 {
-    [self startLocationUpdate];
+    if  ([networkReachable currentReachabilityStatus] == ReachableViaWWAN || [networkReachable currentReachabilityStatus] == ReachableViaWiFi){
+        [self startLocationUpdate];
+    }else{
+        [self stopLocationUpdate];
+    }
 }
 
 #pragma mark - Segues
@@ -128,6 +136,7 @@
 
 -(void)startLocationUpdate
 {
+    [refresher beginRefreshing];
     [self setupLocationUpdates];
 }
 
@@ -157,6 +166,8 @@
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
     UIAlertView *errorAlertView = [[UIAlertView alloc]initWithTitle:@"Same Error" message:@"Failed to get Location" delegate:nil cancelButtonTitle:@"OK =(" otherButtonTitles: nil];
     [errorAlertView show];
+    [self stopLocationUpdate];
+    [localManager stopUpdatingLocation];
 }
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
@@ -169,6 +180,43 @@
              [[FoursquareManager sharedManager]searchLocationsNearLocation:[placemarks lastObject]];
         };
     }];
+}
+
+#pragma mark - Network
+
+-(void)checkNetworkAvailable{
+    networkReachable = [Reachability reachabilityWithHostName:@"www.google.com"];
+    
+    networkReachable.reachableBlock = ^(Reachability *reach){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"Internet connection are stable");
+        });
+    };
+    networkReachable.unreachableBlock = ^(Reachability *reach){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            UIAlertView *errorAlertView = [[UIAlertView alloc]initWithTitle:@"Internet connection is lost" message:@"Please turn on internet connection for proper application" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [errorAlertView show];
+            NSLog(@"Internet connection are closed");
+        });
+    };
+    
+    [networkReachable startNotifier];
+}
+
+-(void)networkReachabilityChanged:(NSNotification *)notify{
+    Reachability* networkStatus = notify.object;
+    NSLog(@"state changed");
+    switch ([networkStatus currentReachabilityStatus]) {
+        case ReachableViaWiFi:
+        case ReachableViaWWAN:
+            [activityIndicator startAnimating];
+            [self startLocationUpdate];
+            break;
+            
+        default:
+            [self stopLocationUpdate];
+            break;
+    }
 }
 
 
